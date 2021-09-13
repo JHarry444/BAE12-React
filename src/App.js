@@ -1,13 +1,11 @@
 import './App.css';
-import Counter from './components/state/Counter';
-import KingContainer from './components/state/KingContainer';
+import ProductTable from './components/state/solutions/ProductTable';
 
 const App = () => {
 
   return (
     <div className="App">
-      <p>APP: {new Date().toTimeString()}</p>
-      <KingContainer/>
+      <ProductTable/>
     </div>
   );
 }
