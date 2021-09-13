@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-const King = ({nm, ctry, yrs, hse}) => {
+const King = ({nm, cty, yrs, hse}) => {
       return (
         <>
             <h3>{nm}</h3>
-            <p>Country: {ctry}</p>
+            <p>Country: {cty}</p>
             <p>Years: {yrs}</p>
             <p>House: {hse}</p>
         </>
@@ -13,7 +13,7 @@ const King = ({nm, ctry, yrs, hse}) => {
 
 King.propTypes = {
     nm: PropTypes.string.isRequired,
-    ctry: PropTypes.string.isRequired,
+    cty: PropTypes.string.isRequired,
     yrs: PropTypes.string.isRequired,
     hse: PropTypes.string.isRequired,
 }
