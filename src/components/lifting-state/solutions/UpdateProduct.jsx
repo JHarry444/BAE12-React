@@ -2,14 +2,15 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-function UpdateProduct({ product, updateProduct }) {
-  const [productName, setProductName] = useState();
-  const [quantity, setQuantity] = useState();
+function UpdateProduct({ product, updateProduct }) { // current product and the update function
+  const [productName, setProductName] = useState(product.productName);
+  const [quantity, setQuantity] = useState(product.quantity);
+  // default value only get set once so state never changes even when new props are passed
 
   useEffect(() => {
     setProductName(product.productName);
     setQuantity(product.quantity);
-  }, [product]);
+  }, [product]); // w/e product changes it'll run the useEffect and update the state
 
   return (
     <form onSubmit={(e) => updateProduct(e, productName, quantity, product.index)}>
