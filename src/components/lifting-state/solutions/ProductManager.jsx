@@ -14,7 +14,7 @@ const ProductManager = () => {
 
     const deleteProduct = (index) => {
         const deleted = [...products];
-        deleted.splice(index, 1);
+        deleted.splice(index, 1); // modifies the array to remove the value at that index - DOES NOT RETURN THE MODIFIED ARRAY
         setProducts(deleted);
     }
 

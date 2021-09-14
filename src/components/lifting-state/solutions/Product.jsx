@@ -12,7 +12,6 @@ const Product = ({productName, quantity, deleteProduct, updateQuantity, id}) => 
                 {" "}
                 <button  onClick={() => deleteProduct(id)}>Delete</button>
             </p>
-        
             <input value={quantityChange} onChange={e => setQuantityChange(e.target.value)}/>
             <button onClick={() => updateQuantity(id, quantityChange)}>Modify Quantity</button>
         </>
