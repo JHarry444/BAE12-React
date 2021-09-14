@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Info from './Info.json';
 import Search from './Search';
 
-function ProductTable() {
+const ProductTable = () => {
     const [filter, setFilter] = useState("");
 
     return ( 

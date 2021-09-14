@@ -1,11 +1,11 @@
 import './App.css';
-import ProductTable from './components/state/solutions/ProductTable';
+import ProductManager from './components/lifting-state/solutions/ProductManager';
 
 const App = () => {
 
   return (
     <div className="App">
-      <ProductTable/>
+      <ProductManager/>
     </div>
   );
 }
