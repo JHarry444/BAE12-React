@@ -1,11 +1,11 @@
 import './App.css';
-import ProductManager from './components/lifting-state/solutions/ProductManager';
+import Counter from './components/hooks/Counter';
 
 const App = () => {
 
   return (
     <div className="App">
-      <ProductManager/>
+      <Counter/>
     </div>
   );
 }
