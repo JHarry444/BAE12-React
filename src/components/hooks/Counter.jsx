@@ -2,12 +2,19 @@ import { useState, useEffect } from 'react';
 
 const Counter = () => {
     const [count, setCount] = useState(0);
+
     useEffect(() => {
-        // Replaces to CDM and CDU
-        document.title = `Clicked ${count} times`;
-        // Replaces CWU
-        return(() => console.log(`Final: ${count}`));
+        document.title = `Clicked ${count} times!`; // Component Did Update
     });
+
+    useEffect(() => {
+        console.log("Counter has been rendered"); // Component Did Mount
+    }, []); // Empty dependency list so it only runs once
+
+    useEffect(() => {
+        console.log("Count has changed!"); 
+    }, [count]); // Updates w/e count changes
+
     return (
         <>
             <p>You have clicked the button {count} times</p>
