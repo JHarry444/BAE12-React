@@ -5,12 +5,16 @@ import Basket from "./Basket";
 const ProductManager = () => {
 
     const [products, setProducts] = useState([]);
+    const [currentProduct, setCurrentProduct] = useState({
+        productName: "",
+        quantity: "",
+        index: 0
+    });
 
-    const updateQuantity = (index, change) => {
-        const _products = [...products];
-        _products[index].quantity += Number.parseInt(change);
-        setProducts(_products);
-    }
+    const updateCurrent = (index) => {
+        setCurrentProduct({...products[index], index});
+    };
+
 
     const deleteProduct = (index) => {
         const deleted = [...products];
@@ -25,10 +29,28 @@ const ProductManager = () => {
         if (productName) setProducts([...products, { productName, quantity: 1}]);
     }
 
+    const updateProduct = (e, productName, quantity, index) => {
+        e.preventDefault();
+        const _products = [...products];
+        _products[index] = {productName, quantity};
+        setProducts(_products);
+        setCurrentProduct({
+            productName: "",
+            quantity: "",
+            index: 0
+        });
+    }
+
     return ( 
         <>
             <AddBasket addProduct={addProduct}/>
-            <Basket products={products} deleteProduct={deleteProduct} updateQuantity={updateQuantity}/>
+            <Basket 
+                products={products} 
+                deleteProduct={deleteProduct} 
+                updateProduct={updateProduct}
+                currentProduct={currentProduct}
+                updateCurrent={updateCurrent}
+            />
         </>
      );
 }

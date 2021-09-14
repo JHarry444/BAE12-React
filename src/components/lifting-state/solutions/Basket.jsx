@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Product from "./Product";
+import UpdateProduct from './UpdateProduct';
 
-const Basket = ({ products, deleteProduct, updateQuantity }) => {
+const Basket = ({ products, deleteProduct, updateProduct, currentProduct, updateCurrent }) => {
 
     return (
         <>
@@ -12,13 +13,14 @@ const Basket = ({ products, deleteProduct, updateQuantity }) => {
                         productName={productName}
                         quantity={quantity}
                         deleteProduct={deleteProduct}
-                        updateQuantity={updateQuantity}
+                        updateCurrent={updateCurrent}
                         id={i}
                         key={productName + i}
                     />
                     )
                 }
             </ol>
+            <UpdateProduct product={currentProduct} updateProduct={updateProduct} />
         </>
     );
 }
@@ -31,5 +33,7 @@ Basket.propTypes = {
         quantity: PropTypes.number.isRequired,
     }).isRequired,
     deleteProduct: PropTypes.func.isRequired,
-    updateQuantity: PropTypes.func.isRequired,
+    updateProduct: PropTypes.func.isRequired, 
+    currentProduct: PropTypes.func.isRequired, 
+    updateCurrent: PropTypes.func.isRequired,
 }
