@@ -1,18 +1,32 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import King from '../King';
-import Kings from './Kings.json';
+// import Kings from './Kings.json';
 
-function KingContainer() {
+const KingContainer = () => {
+  const [kings, setKings] = useState([]);
+  const [error, setError] = useState('');
 
-    console.log("KINGS: ", Kings);
-    return ( 
-        <>
-            {
-                // Kings.map(king => <King nm={king.nm}  cty={king.cty} hse={king.hse} yrs={king.yrs}/>)
-                // Kings.map(({nm, cty, hse, yrs}) => <King nm={nm}  cty={cty} hse={hse} yrs={yrs}/>)
-                Kings.map(king => <King key={king.nm + " : " + king.yrs} {...king}/>)
-            }
-        </>
-     );
-}
+  useEffect(() => {
+    axios
+      .get('https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json')
+      .then(({ data }) => setKings(data))
+      .catch((err) => setError(err.message));
+  }, []); // only runs when component is mounted
+
+  return (
+    <>
+      {error && (
+      <p>
+        Error:
+        {error}
+      </p>
+      )}
+      { kings.map(({
+        nm, cty, hse, yrs,
+      }) => <King key={`${nm} : ${yrs}`} nm={nm} cty={cty} hse={hse} yrs={yrs} />) }
+    </>
+  );
+};
 
 export default KingContainer;

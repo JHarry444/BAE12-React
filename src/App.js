@@ -1,9 +1,11 @@
 import './App.css';
 import ProductManager from './components/lifting-state/solutions/ProductManager';
+import KingContainer from './components/state/KingContainer';
 
 const App = () => (
   <div className="App">
-    <ProductManager />
+    {/* <ProductManager /> */}
+    <KingContainer/>
   </div>
 );
 
