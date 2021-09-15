@@ -1,12 +1,34 @@
+/* eslint-disable react/jsx-filename-extension */
 import './App.css';
-import ProductManager from './components/lifting-state/solutions/ProductManager';
-import KingContainer from './components/state/KingContainer';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import About from './components/routing/About';
+import DisplayParameter from './components/routing/DisplayParemeter';
+import Home from './components/routing/Home';
 
 const App = () => (
-  <div className="App">
-    {/* <ProductManager /> */}
-    <KingContainer/>
-  </div>
+  <Router>
+    <nav>
+      <Link to="/">
+        Home
+      </Link>
+      {' '}
+      <Link to="/about">
+        About
+      </Link>
+      {' '}
+      <Link to="/parameters">
+        Parameters Example
+      </Link>
+    </nav>
+    <Route exact path="/">
+      <Home />
+    </Route>
+    <Route path="/about">
+      <About />
+    </Route>
+    <Route path="/parameters/:myParameter">
+      <DisplayParameter />
+    </Route>
+  </Router>
 );
-
 export default App;
