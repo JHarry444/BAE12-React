@@ -16,11 +16,11 @@ function UpdateProduct({ product, updateProduct }) { // current product and the 
     <form onSubmit={(e) => updateProduct(e, productName, quantity, product.index)}>
       <label>
         Name:
-        <input name="productName" value={productName} onChange={(e) => setProductName(e.target.value)} />
+        <input name="productName" value={productName} onChange={(e) => setProductName(e.target.value)} readOnly={!productName} />
       </label>
       <label>
         Quantity:
-        <input name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+        <input name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} readOnly={!quantity} />
       </label>
       <button type="submit">Update</button>
     </form>
